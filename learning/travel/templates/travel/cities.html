@@ -1,0 +1,13 @@
+    <script type="text/javascript">
+        function show() {
+            var div = document.getElementById('content');
+            div.style.display = 'block';
+        }
+    </script>
+    Click here to play with username
+    <button id="show_button" onclick="javascript:show()">show</button>
+    <br>
+    <br>
+    {% csrf_token %}
+    <p></p>
+    <div id="content" style="display: none">{{ form }}</div>

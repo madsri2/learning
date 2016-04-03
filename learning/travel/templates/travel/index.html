@@ -1,0 +1,6 @@
+<form action="{% url 'travel:cities' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <p></p>
+    <input type="submit" value="Go"/>
+</form>
