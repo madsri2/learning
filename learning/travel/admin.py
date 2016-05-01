@@ -1,9 +1,7 @@
 from django.contrib import admin
+from django.apps import apps
 
-# Register your models here.
-from .models import User
-from .models import Itinerary
+app = apps.get_app_config('travel')
 
-admin.site.register(User)
-admin.site.register(Itinerary)
-
+for model_name, model in app.models.items():
+    admin.site.register(model)

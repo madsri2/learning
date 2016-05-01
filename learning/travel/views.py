@@ -5,7 +5,7 @@ from django import forms
 import datetime
 
 from .models import User
-from .models import Itinerary
+from .models import UserItinerary
 
 # Create your views here.
 def index(request):
@@ -39,10 +39,10 @@ def cities(request):
         # "You are going to %s !" % form.cleaned_data['country'])
 
 def plan(request):
-    user_id=User.objects.get(user_name="aparnara").id
-    itin=Itinerary.objects.get(user=user_id)
-    end_date = itin.start_date + datetime.timedelta(days=itin.num_days)
-    return render(request, 'travel/plan.html', {'itin': itin, 'end_date': end_date})
+    user_id=User.objects.get(name="aparna").id
+    itin=UserItinerary.objects.get(user=user_id)
+    # end_date = itin.start_date + datetime.timedelta(days=itin.num_days)
+    return render(request, 'travel/plan.html', {'itin': itin})
 
 def places(request,tripId):
     return HttpResponse("You will enter places for trip %s here" % tripId)
